@@ -1,0 +1,46 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+
+.f-fl{
+  float:left;
+}
+.f-fr{
+  float: right;
+}
+#app{
+  width:1500px;
+  margin:40px auto;
+}
+.setting {
+  width:680px;
+}
+.props-wrap {
+  display: flex;
+}
+dl{
+  flex: 1;
+}
+dl>dt{
+  font-weight: bold;
+}
+dl>dd{
+  cursor: pointer;
+  margin-left: 10px;
+}
+dl>dd.active {
+  color:#e77f24;
+}
+.container {
+  display: flex; 
+  width: 800px;
+  height: 600px;
+  background: #88499c;
+}
+.container .item {
+  text-align: center;
+  color: #fff;
+  background: #e77f24;
+}

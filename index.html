@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex demo</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div id="app">
+    <div class="setting f-fl">
+      <div class="props-wrap">
+        <template v-for="(key, value) in parent">
+          <dl>
+            <dt>{{key}}</dt>
+            <dd 
+              v-for="val in value.properties"
+              :class="{'active': value.value == val}"
+              @click="update(key, val)"
+            >
+              {{val}}
+            </dd>
+          </dl>
+        </template>
+      </div>
+    </div>
+    <div class="container f-fr" :style="containerStyle">
+      <template v-for="(item, index) in items">
+      <div class="item">
+        item {{index}}
+      </div>
+      </template>
+    </div>
+  </div>
+<script src="lib/vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
