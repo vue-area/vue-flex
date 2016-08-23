@@ -24,11 +24,17 @@
       </div>
     </div>
     <div class="container f-fr" :style="containerStyle">
-      <template v-for="(item, index) in items">
-      <div class="item">
-        item {{index}}
+      <template v-for="(index, item) in items">
+      <div class="item" :style="item.style">
+        <h2>{{index}} 
+          <button @click="delItem(item)">&times;</button>
+        </h2>
+        <div>
+          <label>flex:</label><input type="text" v-model="item.style.flex" number>
+        </div>
       </div>
       </template>
+      <button class="btn-add-item" @click="addItem">add item</button>
     </div>
   </div>
 <script src="lib/vue.js"></script>
