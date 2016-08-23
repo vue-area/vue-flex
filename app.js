@@ -87,12 +87,11 @@ var app = new Vue({
       this.parent[key].value = value;
     },
     updateSon: function(key, value){
-      debugger;
+      this.son[key].value = value;
       this.items = this.items.map(function(item){
         item.style[key] = value;
         return item;
       });
-      debugger;
     }
   }
 });
