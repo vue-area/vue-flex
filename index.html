@@ -22,16 +22,33 @@
           </dl>
         </template>
       </div>
+      <div class="props-wrap">
+        <template v-for="(key, value) in son">
+          <dl>
+            <dt>{{key}}</dt>
+            <dd 
+              v-for="val in value.properties"
+              :class="{'active': value.value == val}"
+              @click="updateSon(key, val)"
+            >
+              {{val}}
+            </dd>
+          </dl>
+        </template>
+      </div>
     </div>
     <div class="container f-fr" :style="containerStyle">
       <template v-for="(index, item) in items">
       <div class="item" :style="item.style">
-        <h2>{{index}} 
+        <h2>{{* index}} 
           <button @click="delItem(item)">&times;</button>
         </h2>
-        <div>
-          <label>flex:</label><input type="text" v-model="item.style.flex" number>
-        </div>
+        <template v-for="(name,value) in item.style">
+          <div>
+            <label>{{name}}</label>
+            <input type="text" v-model="item.style[name]" number>
+          </div>          
+        </template>
       </div>
       </template>
       <button class="btn-add-item" @click="addItem">add item</button>

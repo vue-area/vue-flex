@@ -37,17 +37,17 @@ dl>dd.active {
   display: flex; 
   position: relative;
   width: 600px;
-  height: 600px;
+  height: 400px;
   background: #88499c;
 }
 .container .item {
   text-align: center;
   color: #fff;
-  border:1px solid #f5f5f5;
+  margin: 5px;
   background: #e77f24;
 }
 .container .item input{
-  width:10px;
+  width:40px;
 }
 .btn-add-item {
   position: absolute;

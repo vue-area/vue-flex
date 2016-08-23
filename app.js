@@ -20,11 +20,35 @@ var parent = {
     properties: ["stretch", "flex-start", "flex-end", "center", "space-between", "space-around"]
   }
 };
+var son = {
+  "width": {
+    value: 'auto',
+    properties: ['auto', '50px', '100px', '150px']
+  },
+  'flex-grow': {
+    value: 0,
+    properties : [0, 1, 2, 3]
+  },
+  'flex-shrink': {
+    value: 0,
+    properties : [0, 1, 2, 3]
+  },
+  'flex-basis': {
+    value: "auto",
+    properties: ["auto", "100px", "200px", "300px", "400px"]
+  },
+  'align-self': {
+    value: "auto",
+    properties: ["auto", "stretch", "flex-start", "flex-end", "center", "baseline"]
+  }
+};
+Vue.config.debug = true;
 var app = new Vue({
   el: "#app",
   data: {
     items: [],
-    parent: parent 
+    parent: parent,
+    son: son
   },
   computed: {
     containerStyle: function (params) {
@@ -39,12 +63,20 @@ var app = new Vue({
   },
   created: function(){
     this.addItem();
+    this.addItem();
+    this.addItem();
   },
   methods: {
     addItem: function(){
       this.items.push({
         style: {
-          flex: 1
+          'order': 0,
+          'flex-grow': 0,
+          'flex-shrink': 1,
+          'flex-basis': 'auto',
+          'align-self':'auto',
+          'height': 'auto',
+          'width': 'auto'
         }
       })
     },
@@ -53,6 +85,14 @@ var app = new Vue({
     },
     update: function(key, value){
       this.parent[key].value = value;
+    },
+    updateSon: function(key, value){
+      debugger;
+      this.items = this.items.map(function(item){
+        item.style[key] = value;
+        return item;
+      });
+      debugger;
     }
   }
 });
